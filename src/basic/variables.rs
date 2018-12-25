@@ -1,11 +1,15 @@
 
 // let
 // let mut
-// const
 // shadow
+// const
+// static
+
+const CON: &str = "I am a const string.";
+static STA: &str = "I am a static string.";
 
 pub fn demo () {
-    println!("###### <<< Demo let/let mut/const/shadow/ ######");
+    println!("###### <<< Demo let/let mut/shadow/const/static ######");
 
     let x = 5;
     println!("The value of x is: {}", x);
@@ -19,6 +23,9 @@ pub fn demo () {
 
     x = 7;
     println!("The value of x is: {}", x);
+
+    println!("{}", CON);
+    println!("{}", STA);
 
     println!("###### Variables Demo >>> ######");
     println!("");

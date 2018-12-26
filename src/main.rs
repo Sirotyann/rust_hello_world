@@ -4,4 +4,5 @@ mod module_example;
 fn main() {
     module_example::demo();
     basic::variables::demo();
+    basic::types::demo();
 }

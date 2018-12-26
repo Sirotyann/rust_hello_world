@@ -6,5 +6,6 @@ fn main() {
     basic::variables::demo();
     basic::types::demo();
     basic::flow::demo();
-    basic::ownership::demo();
+    // basic::ownership::demo();
+    basic::strings::demo();
 }

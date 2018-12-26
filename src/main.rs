@@ -5,4 +5,5 @@ fn main() {
     module_example::demo();
     basic::variables::demo();
     basic::types::demo();
+    basic::flow::demo();
 }

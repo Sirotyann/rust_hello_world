@@ -1,4 +1,5 @@
 mod basic;
+mod collectors;
 mod module_example;
 
 fn main() {
@@ -10,4 +11,7 @@ fn main() {
     basic::strings::demo();
     basic::structs::demo();
     basic::enums::demo();
+    collectors::vectors::demo();
+    collectors::strings::demo();
+    collectors::maps::demo();
 }

@@ -1,5 +1,5 @@
 /***
-if / loop / while
+if / loop / while / match
 
 ***/
 
@@ -9,6 +9,8 @@ pub fn demo() {
     demo_loop();
     demo_while();
     demo_for();
+    demo_match(1);
+    demo_match(0);
     println!("###### Rust control flow >>> ######");
     println!("");
 }
@@ -52,5 +54,15 @@ fn demo_while() {
 fn demo_for() {
     for i in (0..5).rev() {
         println!("For loop {}!", i);
+    }
+}
+
+fn demo_match (some_u8_value:u8) {
+    match some_u8_value {
+        1 => println!("one"),
+        3 => println!("three"),
+        5 => println!("five"),
+        7 => println!("seven"),
+        _ => (),
     }
 }

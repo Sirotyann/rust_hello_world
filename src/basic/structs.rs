@@ -15,6 +15,7 @@ pub fn demo() {
     let point = Point(8, 9);
     println!("point is {:?}", point);
     println!("###### Rust struct >>> ######");
+    println!("");
 }
 
 #[derive(Debug)]

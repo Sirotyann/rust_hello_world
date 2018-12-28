@@ -9,4 +9,5 @@ fn main() {
     basic::ownership::demo();
     basic::strings::demo();
     basic::structs::demo();
+    basic::enums::demo();
 }

@@ -11,6 +11,8 @@ fn main() {
     basic::strings::demo();
     basic::structs::demo();
     basic::enums::demo();
+    basic::functions::demo();
+    basic::traits::demo();
     collectors::vectors::demo();
     collectors::strings::demo();
     collectors::maps::demo();

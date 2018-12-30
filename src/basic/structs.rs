@@ -1,6 +1,9 @@
 /***
-Struct and Function definition doesn't need ';'
-But Tuple Struct needs.
+* 1) Struct and Function definition doesn't need ';'
+*    But Tuple Struct needs.
+*
+* 2) Generic data types
+*
 ***/
 
 pub fn demo() {
@@ -14,6 +17,8 @@ pub fn demo() {
 
     let point = Point(8, 9);
     println!("point is {:?}", point);
+
+    demo_generic();
     println!("###### Rust struct >>> ######");
     println!("");
 }
@@ -42,4 +47,27 @@ impl User {
     fn build(name:String, age:u8) -> User{
         User{ name: name.to_string(), age: age }
     }
+}
+
+// Generic
+#[derive(Debug)]
+struct GenPoint<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> GenPoint<T> {
+    fn x(&self) -> &T {
+        &self.x
+    }
+}
+
+fn demo_generic() {
+    let integer = GenPoint { x: 5, y: 10 };
+    let float = GenPoint { x: 1.0, y: 4.0 };
+    println!("Int point: {:?}   float point: {:?}", integer, float);
+    println!("Int point x: {}", integer.x());
+
+    // but this won't work
+    // let wont_work = Point { x: 5, y: 4.0 };
 }

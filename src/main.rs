@@ -16,4 +16,5 @@ fn main() {
     collectors::vectors::demo();
     collectors::strings::demo();
     collectors::maps::demo();
+    basic::pointers::demo();
 }

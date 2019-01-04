@@ -2,7 +2,9 @@
 * 1) Struct and Function definition doesn't need ';'
 *    But Tuple Struct needs.
 *
-* 2) Generic data types
+* 2) Tuple struct
+*
+* 3) Generic data types
 *
 ***/
 

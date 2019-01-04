@@ -1,11 +1,13 @@
 /**
-Rust calls drop automatically at the closing curly bracket.
-
-scope / move / borrow / clone
-
-Borrow:
-1) You can have only one mutable reference to a particular piece of data in a particular scope.
-
+* Rust calls drop automatically at the closing curly bracket.
+*
+* scope / move / borrow / clone
+*
+* Borrow Rules:
+* 1) Any borrow must last for a scope no greater than that of the owner.
+* 2) You may have one or the other of these two kinds of borrows, but not both at the same time
+*       -- one or more references (&T) _OR_ exactly one mutable reference (&mut T)
+* 
 **/
 pub fn demo() {
     println!("###### <<< Rust ownership ######");

@@ -19,6 +19,12 @@
 *
 * 4) Deref coercion.
 *
+* 5) Drop.
+*       -- Drop trait lets you customize what happens when a value is about to go out of scope.
+*
+* 6) std::mem::drop.
+*       -- Force a value to be dropped before the end of its scope.
+*
 ***/
 
 pub fn demo() {
@@ -28,6 +34,7 @@ pub fn demo() {
     demo_box_base();
     demo_deref();
     demo_deref_coercion();
+    demo_drop();
 
     println!("###### Rust pointers >>> ######");
     println!("");
@@ -101,4 +108,19 @@ fn demo_deref_coercion() {
     let name = MyBox::new(String::from("cli"));
     hello(&name); // equals ==> hello(&(*name))
     hello(&(*name));
+}
+
+// --- 5) --- Drop --
+impl<T> Drop for MyBox<T> {
+    fn drop(&mut self){
+        println!("A Box dropped");
+    }
+}
+
+// --- 6) --- std::mem::drop --
+fn demo_drop() {
+    let a_trash = MyBox::new(String::from("trash"));
+    println!("Create a box");
+    drop(a_trash);
+    println!("Dropped a box with std::mem::drop");
 }

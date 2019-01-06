@@ -13,6 +13,7 @@ pub fn demo() {
     demo_create();
     demo_argument();
     demo_multiple_traits();
+    demo_trait_object();
     println!("###### Rust trait >>> ######");
     println!("");
 }
@@ -114,4 +115,49 @@ fn show_summary_and_location(item: impl Summary + Location) {
 fn demo_multiple_traits() {
     let art = create_art();
     show_summary_and_location(art);
+}
+
+// -- 4) --------  trait object
+pub trait Draw {
+    fn draw(&self);
+}
+
+pub struct Screen {
+    pub components: Vec<Box<dyn Draw>>,
+}
+
+impl Screen {
+    pub fn run(&self) {
+        for component in self.components.iter() {
+            component.draw();
+        }
+    }
+}
+
+struct Span { txt: String }
+struct Button { txt: String, color: String }
+
+impl Draw for Span {
+    fn draw(&self) {
+        println!("Draw span {}", self.txt);
+    }
+}
+
+impl Draw for Button {
+    fn draw(&self) {
+        println!("Draw Button {} - {}", self.txt, self.color);
+    }
+}
+
+fn demo_trait_object() {
+    // If use generic type, components cannot hold both span and button
+    let screen = Screen {
+        components: vec![
+            Box::new(Span{txt: String::from("span1")}),
+            Box::new(Span{txt: String::from("span2")}),
+            Box::new(Button{txt: String::from("Blue button"), color: String::from("blue")}),
+        ],
+    };
+
+    screen.run();
 }

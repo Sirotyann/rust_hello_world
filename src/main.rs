@@ -1,5 +1,6 @@
 mod basic;
 mod collectors;
+mod feature;
 mod module_example;
 
 fn main() {
@@ -17,4 +18,5 @@ fn main() {
     collectors::strings::demo();
     collectors::maps::demo();
     basic::pointers::demo();
+    feature::cons_list::demo();
 }
